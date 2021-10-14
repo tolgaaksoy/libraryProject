@@ -67,7 +67,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public ResponseEntity<APIResponse> updateBook(Book book) {
-        return null;
+        Optional<Book> optionalBook = bookRepo.findById(book.getId());
+        if (!optionalBook.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        bookRepo.save(book);
+        return ResponseEntity.noContent().build();
     }
 
     @Override
