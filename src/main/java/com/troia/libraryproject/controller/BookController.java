@@ -17,11 +17,11 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity<APIResponse> getALlBooks(){
+    public ResponseEntity<APIResponse> getALlBooks() {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/api/book/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<APIResponse> findBookById(@PathVariable String id) {
         return bookService.findBookById(id);
     }
@@ -31,4 +31,13 @@ public class BookController {
         return bookService.createBook(book);
     }
 
+    @PutMapping
+    public ResponseEntity<APIResponse> updateBook(@RequestBody Book book) {
+        return bookService.updateBook(book);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<APIResponse> deleteBook(@PathVariable String id) {
+        return bookService.deleteBook(id);
+    }
 }

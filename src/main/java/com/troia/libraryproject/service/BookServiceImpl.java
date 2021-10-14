@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class BookServiceImpl implements BookService {
+public class BookServiceImpl extends BaseService implements BookService {
 
     private final BookRepository bookRepo;
 
@@ -68,15 +68,36 @@ public class BookServiceImpl implements BookService {
     @Override
     public ResponseEntity<APIResponse> updateBook(Book book) {
         Optional<Book> optionalBook = bookRepo.findById(book.getId());
-        if (!optionalBook.isPresent()) {
-            return ResponseEntity.notFound().build();
+        if (optionalBook.isPresent()) {
+            copyNonNullProperties(book, optionalBook.get());
+            Book savedBook = bookRepo.save(optionalBook.get());
+            return new ResponseEntity<>(APIResponse.builder()
+                    .data(savedBook)
+                    .message("Kitap güncellendi...")
+                    .status(200)
+                    .build(), HttpStatus.OK);
         }
-        bookRepo.save(book);
-        return ResponseEntity.noContent().build();
+        APIResponse res = APIResponse.builder()
+                .message("Kitap bulunamadı.")
+                .status(404)
+                .build();
+        return new ResponseEntity<>(res, HttpStatus.NOT_FOUND);
     }
 
     @Override
     public ResponseEntity<APIResponse> deleteBook(String id) {
-        return null;
+        Optional<Book> optionalBook = bookRepo.findById(UUID.fromString(id));
+        if (optionalBook.isPresent()) {
+            bookRepo.deleteById(UUID.fromString(id));
+            return new ResponseEntity<>(APIResponse.builder()
+                    .message("Kitap başarıyla silindi...")
+                    .status(200)
+                    .build(), HttpStatus.OK);
+        }
+        APIResponse res = APIResponse.builder()
+                .message("Kitap bulunamadı.")
+                .status(404)
+                .build();
+        return new ResponseEntity<>(res, HttpStatus.NOT_FOUND);
     }
 }
