@@ -3,6 +3,8 @@ package com.troia.libraryproject.service;
 import com.troia.libraryproject.model.Book;
 import com.troia.libraryproject.repository.BookRepository;
 import com.troia.libraryproject.response.APIResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,8 +23,8 @@ public class BookServiceImpl extends BaseService implements BookService {
     }
 
     @Override
-    public ResponseEntity<APIResponse> getAllBooks() {
-        List<Book> bookList = bookRepo.findAll();
+    public ResponseEntity<APIResponse> getAllBooks(Pageable pageable) {
+        Page<Book> bookList = bookRepo.findAll(pageable);
         if (bookList.isEmpty()) {
             APIResponse res = APIResponse.builder()
                     .message("Kitaplar bulunamadı.")

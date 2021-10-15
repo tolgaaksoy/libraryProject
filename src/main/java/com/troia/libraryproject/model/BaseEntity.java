@@ -28,15 +28,15 @@ public class BaseEntity {
     @JsonIgnore
     private boolean deleted;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    @JsonIgnore
     @CreationTimestamp
     private Timestamp created;
 
+    @JsonIgnore
     @LastModifiedBy
     private String modifiedBy;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-    @Getter(AccessLevel.NONE)
+    @JsonIgnore
     @UpdateTimestamp
     private Timestamp modified;
 }
