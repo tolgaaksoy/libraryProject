@@ -11,7 +11,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/library-project?useUnicode=true&characterEncoding=UTF-8&verifyServerCertificate=false&useSSL=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Europe/Istanbul
     username: root
-    password:
+    password: root
   jpa:
     properties:
       hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
@@ -24,3 +24,8 @@ spring:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
 
+security:
+  jwt:
+    token:
+      secret-key: secret-key
+      expire-length: 3600000
