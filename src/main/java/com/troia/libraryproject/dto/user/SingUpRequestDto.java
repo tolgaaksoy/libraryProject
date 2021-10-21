@@ -5,14 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.FetchType;
 import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class singInDto {
+public class SingUpRequestDto {
     private String username;
     private String password;
 
@@ -21,4 +19,7 @@ public class singInDto {
 
     private String email;
     private String phone;
+
+    private Set<Role> roles;
+
 }

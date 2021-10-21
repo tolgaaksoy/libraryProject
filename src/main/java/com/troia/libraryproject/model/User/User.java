@@ -4,11 +4,11 @@ import com.troia.libraryproject.model.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,8 +22,11 @@ public class User extends BaseEntity implements Serializable {
     private String username;
     private String password;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    private Set<Role> roleList;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(	name = "User_Roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     private String name;
     private String surname;

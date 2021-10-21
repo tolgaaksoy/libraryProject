@@ -1,17 +1,15 @@
 package com.troia.libraryproject.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.LastModifiedBy;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.UUID;
 
 @MappedSuperclass
@@ -30,7 +28,7 @@ public class BaseEntity {
 
     @JsonIgnore
     @CreationTimestamp
-    private Timestamp created;
+    private Instant created;
 
     @JsonIgnore
     @LastModifiedBy
@@ -38,5 +36,5 @@ public class BaseEntity {
 
     @JsonIgnore
     @UpdateTimestamp
-    private Timestamp modified;
+    private Instant modified;
 }

@@ -1,15 +1,23 @@
 package com.troia.libraryproject.model.User;
 
-import org.springframework.security.core.GrantedAuthority;
+import com.troia.libraryproject.model.BaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public enum Role implements GrantedAuthority {
-    ROLE_MEMBER,
-    ROLE_GUEST,
-    ROLE_LIBRARIAN,
-    ROLE_ADMIN;
+import javax.persistence.*;
+import java.io.Serializable;
 
-    public String getAuthority() {
-        return name();
-    }
+@Entity
+@Table(name = "Roles")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Role extends BaseEntity implements Serializable {
 
+    private static final long serialVersionUID = -7759103393086576483L;
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 25)
+    private ERole role;
 }

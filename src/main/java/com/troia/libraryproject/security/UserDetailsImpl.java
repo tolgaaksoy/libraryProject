@@ -21,20 +21,15 @@ public class UserDetailsImpl implements UserDetails, Serializable {
     private UUID id;
 
     private String username;
+
     @JsonIgnore
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    private String name;
-    private String surname;
-
-    private String email;
-    private String phone;
-
     public static UserDetailsImpl userToUserDetailsMapper(User user) {
-        List<GrantedAuthority> authorities = user.getRoleList().stream()
-                .map(role -> new SimpleGrantedAuthority(role.getAuthority()))
+        List<GrantedAuthority> authorities = user.getRoles().stream()
+                .map(role -> new SimpleGrantedAuthority(role.getRole().name()))
                 .collect(Collectors.toList());
 
         return UserDetailsImpl.builder()
@@ -42,8 +37,6 @@ public class UserDetailsImpl implements UserDetails, Serializable {
                 .username(user.getUsername())
                 .password(user.getPassword())
                 .authorities(authorities)
-                .name(user.getName())
-                .surname(user.getSurname())
                 .build();
     }
 
@@ -64,22 +57,6 @@ public class UserDetailsImpl implements UserDetails, Serializable {
     @Override
     public String getPassword() {
         return password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhone() {
-        return phone;
     }
 
     @Override

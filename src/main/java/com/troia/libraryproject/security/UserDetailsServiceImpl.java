@@ -1,7 +1,7 @@
 package com.troia.libraryproject.security;
 
 import com.troia.libraryproject.model.User.User;
-import com.troia.libraryproject.repository.UserRepository;
+import com.troia.libraryproject.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
