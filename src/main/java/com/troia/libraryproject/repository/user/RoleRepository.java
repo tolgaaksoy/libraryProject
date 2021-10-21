@@ -1,7 +1,7 @@
 package com.troia.libraryproject.repository.user;
 
-import com.troia.libraryproject.model.User.ERole;
-import com.troia.libraryproject.model.User.Role;
+import com.troia.libraryproject.model.user.ERole;
+import com.troia.libraryproject.model.user.Role;
 import com.troia.libraryproject.repository.BaseRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
 package com.troia.libraryproject.repository.user;
 
-import com.troia.libraryproject.model.User.RefreshToken;
-import com.troia.libraryproject.model.User.User;
+import com.troia.libraryproject.model.user.RefreshToken;
+import com.troia.libraryproject.model.user.User;
 import com.troia.libraryproject.repository.BaseRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;

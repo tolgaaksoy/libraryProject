@@ -1,7 +1,7 @@
 package com.troia.libraryproject.config;
 
-import com.troia.libraryproject.model.User.ERole;
-import com.troia.libraryproject.model.User.Role;
+import com.troia.libraryproject.model.user.ERole;
+import com.troia.libraryproject.model.user.Role;
 import com.troia.libraryproject.repository.user.RoleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

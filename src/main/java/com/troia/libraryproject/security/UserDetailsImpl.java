@@ -1,7 +1,7 @@
 package com.troia.libraryproject.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.troia.libraryproject.model.User.User;
+import com.troia.libraryproject.model.user.User;
 import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

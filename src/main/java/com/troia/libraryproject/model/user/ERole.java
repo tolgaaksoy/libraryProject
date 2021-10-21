@@ -1,4 +1,4 @@
-package com.troia.libraryproject.model.User;
+package com.troia.libraryproject.model.user;
 
 public enum ERole {
     ROLE_ADMIN("ROLE_ADMIN"),

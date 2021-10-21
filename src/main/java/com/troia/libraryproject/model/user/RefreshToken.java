@@ -1,4 +1,4 @@
-package com.troia.libraryproject.model.User;
+package com.troia.libraryproject.model.user;
 
 import com.troia.libraryproject.model.BaseEntity;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity

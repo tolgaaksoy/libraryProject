@@ -1,6 +1,6 @@
 package com.troia.libraryproject.repository.user;
 
-import com.troia.libraryproject.model.User.User;
+import com.troia.libraryproject.model.user.User;
 import com.troia.libraryproject.repository.BaseRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
 package com.troia.libraryproject.dto.user;
 
-import com.troia.libraryproject.model.User.Role;
+import com.troia.libraryproject.model.user.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.troia.libraryproject.model.User;
+package com.troia.libraryproject.model.user;
 
 import com.troia.libraryproject.model.BaseEntity;
 import lombok.AllArgsConstructor;
