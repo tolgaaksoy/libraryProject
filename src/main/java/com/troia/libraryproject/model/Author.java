@@ -19,7 +19,7 @@ public class Author extends BaseEntity implements Serializable {
     @JsonView({Views.AuthorListing.class, Views.BookListing.class})
     private String surname;
     @JsonView({Views.AuthorListing.class, Views.BookListing.class})
-    @Column(length = 512)
+    @Column(length = 1028)
     private String description;
 
     @JsonView({Views.AuthorListing.class})
