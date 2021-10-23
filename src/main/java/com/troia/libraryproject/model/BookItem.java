@@ -2,20 +2,16 @@ package com.troia.libraryproject.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BookItem extends Book implements Serializable {
+public class BookItem extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 2532493753104776259L;
 
@@ -41,6 +37,10 @@ public class BookItem extends Book implements Serializable {
 
     private Instant publicationDate;
 
-//    @ManyToOne
-//    private Library library;
+    @OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Book book;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "library_id", nullable = false, insertable = false, updatable = false)
+    private Library library;
 }
