@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
@@ -37,7 +36,7 @@ public class Book extends BaseEntity implements Serializable {
     private Language language;
 
     @JsonView({Views.BookListing.class})
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
 
@@ -49,7 +48,6 @@ public class Book extends BaseEntity implements Serializable {
     private String description;
 
     @JsonView({Views.BookListing.class, Views.AuthorListing.class})
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private Instant publishDate;
 
     @JsonView({Views.BookListing.class, Views.AuthorListing.class})
