@@ -66,7 +66,7 @@ public class LibraryServiceImpl extends BaseService implements LibraryService {
                     .message("Library not found.")
                     .build(), HttpStatus.NOT_FOUND);
         }
-        copyNonNullProperties(library, optionalLibrary);
+        copyNonNullProperties(library, optionalLibrary.get());
         Library updatedLibrary = libraryRepository.save(optionalLibrary.get());
         return new ResponseEntity<>(APIResponse.builder()
                 .status(200)
