@@ -3,19 +3,11 @@ package com.troia.libraryproject.service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashSet;
 import java.util.Set;
 
 public class BaseService {
-
-    @Autowired
-    HttpServletRequest request;
-    @Autowired
-    HttpServletResponse response;
 
     private String[] getNullPropertyNames(Object source) {
         final BeanWrapper src = new BeanWrapperImpl(source);
