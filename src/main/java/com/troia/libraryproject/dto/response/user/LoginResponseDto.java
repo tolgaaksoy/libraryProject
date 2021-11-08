@@ -1,5 +1,4 @@
-package com.troia.libraryproject.dto.user;
-
+package com.troia.libraryproject.dto.response.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,8 +10,8 @@ import java.util.UUID;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class LoginResponseDto {
     private String token;
     private String type = "Bearer";

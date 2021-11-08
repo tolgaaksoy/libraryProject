@@ -1,4 +1,4 @@
-package com.troia.libraryproject.dto.user;
+package com.troia.libraryproject.dto.request.user;
 
 import com.troia.libraryproject.model.user.Role;
 import lombok.AllArgsConstructor;
@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import java.util.Set;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class SingUpRequestDto {
     private String username;
     private String password;

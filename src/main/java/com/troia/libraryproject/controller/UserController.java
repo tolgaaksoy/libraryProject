@@ -1,9 +1,9 @@
 package com.troia.libraryproject.controller;
 
-import com.troia.libraryproject.dto.user.LogOutRequestDto;
-import com.troia.libraryproject.dto.user.LoginRequestDto;
-import com.troia.libraryproject.dto.user.SingUpRequestDto;
-import com.troia.libraryproject.dto.user.TokenRefreshRequestDto;
+import com.troia.libraryproject.dto.request.user.LogOutRequestDto;
+import com.troia.libraryproject.dto.request.user.LoginRequestDto;
+import com.troia.libraryproject.dto.request.user.SingUpRequestDto;
+import com.troia.libraryproject.dto.request.user.TokenRefreshRequestDto;
 import com.troia.libraryproject.response.APIResponse;
 import com.troia.libraryproject.service.user.RefreshTokenService;
 import com.troia.libraryproject.service.user.UserService;

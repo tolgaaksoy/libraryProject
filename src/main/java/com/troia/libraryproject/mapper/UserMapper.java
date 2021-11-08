@@ -1,7 +1,7 @@
 package com.troia.libraryproject.mapper;
 
-import com.troia.libraryproject.dto.user.SingUpRequestDto;
-import com.troia.libraryproject.dto.user.SingUpResponseDto;
+import com.troia.libraryproject.dto.request.user.SingUpRequestDto;
+import com.troia.libraryproject.dto.response.user.SingUpResponseDto;
 import com.troia.libraryproject.model.user.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

@@ -1,8 +1,8 @@
 package com.troia.libraryproject.service.user;
 
-import com.troia.libraryproject.dto.user.LoginRequestDto;
-import com.troia.libraryproject.dto.user.LoginResponseDto;
-import com.troia.libraryproject.dto.user.SingUpRequestDto;
+import com.troia.libraryproject.dto.request.user.LoginRequestDto;
+import com.troia.libraryproject.dto.response.user.LoginResponseDto;
+import com.troia.libraryproject.dto.request.user.SingUpRequestDto;
 import com.troia.libraryproject.exception.CustomException;
 import com.troia.libraryproject.mapper.UserMapper;
 import com.troia.libraryproject.model.user.ERole;
@@ -24,7 +24,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

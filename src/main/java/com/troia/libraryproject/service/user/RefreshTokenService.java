@@ -1,8 +1,8 @@
 package com.troia.libraryproject.service.user;
 
-import com.troia.libraryproject.dto.user.LogOutRequestDto;
-import com.troia.libraryproject.dto.user.TokenRefreshRequestDto;
-import com.troia.libraryproject.dto.user.TokenRefreshResponseDto;
+import com.troia.libraryproject.dto.request.user.LogOutRequestDto;
+import com.troia.libraryproject.dto.request.user.TokenRefreshRequestDto;
+import com.troia.libraryproject.dto.response.user.TokenRefreshResponseDto;
 import com.troia.libraryproject.model.user.RefreshToken;
 import com.troia.libraryproject.model.user.User;
 import com.troia.libraryproject.repository.user.RefreshTokenRepository;

@@ -1,4 +1,4 @@
-package com.troia.libraryproject.dto.user;
+package com.troia.libraryproject.dto.response.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
