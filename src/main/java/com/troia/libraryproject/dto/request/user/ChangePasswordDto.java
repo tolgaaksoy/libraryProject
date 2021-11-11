@@ -7,8 +7,11 @@ import lombok.NoArgsConstructor;
 import java.util.UUID;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class LogOutRequestDto {
+@NoArgsConstructor
+public class ChangePasswordDto {
     private UUID userId;
+    private String currentPassword;
+    private String newPassword;
+    private String newPasswordVerification;
 }

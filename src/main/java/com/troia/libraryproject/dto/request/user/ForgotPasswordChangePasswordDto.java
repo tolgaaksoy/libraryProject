@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class LogOutRequestDto {
-    private UUID userId;
+public class ForgotPasswordChangePasswordDto {
+    private String token;
+    private String newPassword;
+    private String newPasswordVerification;
 }

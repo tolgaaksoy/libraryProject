@@ -1,17 +1,11 @@
 package com.troia.libraryproject.controller;
 
-import com.troia.libraryproject.dto.request.user.LogOutRequestDto;
-import com.troia.libraryproject.dto.request.user.LoginRequestDto;
-import com.troia.libraryproject.dto.request.user.SingUpRequestDto;
-import com.troia.libraryproject.dto.request.user.TokenRefreshRequestDto;
+import com.troia.libraryproject.dto.request.user.*;
 import com.troia.libraryproject.response.APIResponse;
 import com.troia.libraryproject.service.user.RefreshTokenService;
 import com.troia.libraryproject.service.user.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
@@ -25,11 +19,6 @@ public class UserController {
         this.refreshTokenService = refreshTokenService;
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<APIResponse> login(@RequestBody LoginRequestDto loginDto) {
-        return userService.login(loginDto);
-    }
-
     @PostMapping("/register")
     public ResponseEntity<APIResponse> register(@RequestBody SingUpRequestDto singupRequestDto) {
         return userService.register(singupRequestDto);
@@ -40,9 +29,33 @@ public class UserController {
         return refreshTokenService.refreshToken(request);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<APIResponse> login(@RequestBody LoginRequestDto loginDto) {
+        return userService.login(loginDto);
+    }
+
     @PostMapping("/logout")
     public ResponseEntity<APIResponse> logoutUser(@RequestBody LogOutRequestDto logOutRequest) {
         return refreshTokenService.logoutUser(logOutRequest);
     }
 
+    @PostMapping("/changePassword")
+    public ResponseEntity<APIResponse> changePassword(@RequestBody ChangePasswordDto changePasswordDto) {
+        return userService.changePassword(changePasswordDto);
+    }
+
+    @PostMapping("/forgotPassword")
+    public ResponseEntity<APIResponse> forgotPassword(@RequestBody ForgotPasswordDto forgotPasswordDto) {
+        return userService.forgotPassword(forgotPasswordDto);
+    }
+
+    @PostMapping("/forgotPassword/validatePasswordResetToken")
+    public ResponseEntity<APIResponse> validatePasswordResetToken(@RequestParam("token") String token) {
+        return userService.validatePasswordResetToken(token);
+    }
+
+    @PostMapping("/forgotPassword/changePassword")
+    public ResponseEntity<APIResponse> forgotPasswordChangePassword(@RequestBody ForgotPasswordChangePasswordDto changePasswordDto) {
+        return userService.forgotPasswordChangePassword(changePasswordDto);
+    }
 }

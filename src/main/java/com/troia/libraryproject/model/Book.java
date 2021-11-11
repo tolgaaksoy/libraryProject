@@ -1,6 +1,5 @@
 package com.troia.libraryproject.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.troia.libraryproject.view.Views;
 import lombok.AllArgsConstructor;
